@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+    <title>Vega-Lite Chart</title>
+</head>
+<body>
+<div>
+    <div id="viz"></div>
+</div>
+</body>
+
+<script>
+    var chart =
+        {
+            "$schema":"https://vega.github.io/schema/vega-lite/v3.json",
+            "height":400,
+            "width": 800,
+            "data": {"url": "preprocessed_population.csv"},
+
+            "mark":"bar",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "temporal",
+                },
+                "y": {
+                    "field": "population",
+                    "type": "quantitative",
+                },
+
+                "color": {
+                    "field": "group",
+                    "type": "nominal",
+                    "legend": {
+                        "title": "Age group"},
+                },
+                "tooltip":{
+                    "field":"population",
+                    "type":"quantitative"
+                }
+            }
+        }
+
+
+    //insert you chart specs here
+
+    var opts = {
+        "actions": false
+    }
+
+    vegaEmbed('#viz', chart, opts)
+</script>
+</html>
