@@ -23,30 +23,35 @@
             "height":400,
             "width": 800,
             "data": {"url": "preprocessed_population.csv"},
-
+            "title": "Population by age group",
             "mark":"bar",
             "encoding": {
                 "x": {
                     "field": "year",
-                    "type": "temporal",
+                    "type": "ordinal",
+                    "bin": {
+                        "base": 30,
+                    }
                 },
                 "y": {
                     "field": "population",
                     "type": "quantitative",
                 },
-
                 "color": {
                     "field": "group",
                     "type": "nominal",
+                    "scale":{"range": ["#b4e5b5","#63a759", "#a93a3a",]},
                     "legend": {
-                        "title": "Age group"},
-                },
+                        "title": "Age group",
+                        },
+                    }
+            },
                 "tooltip":{
                     "field":"population",
                     "type":"quantitative"
                 }
             }
-        }
+
 
 
     //insert you chart specs here
