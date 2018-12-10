@@ -25,18 +25,22 @@
             "data": {"url": "preprocessed_population.csv"},
             "title": "Population by age group",
             "mark":"bar",
+            "config":{
+                "bar":"left",
+            },
             "encoding": {
                 "x": {
                     "field": "year",
                     "type": "ordinal",
-                    "bin": {
-                        "base": 30,
-                    }
+                    // "bin": {
+                    //     "base": 30,
+                    // },
                 },
                 "y": {
                     "field": "population",
                     "type": "quantitative",
                 },
+                "opacity": {"value": 0.7},
                 "color": {
                     "field": "group",
                     "type": "nominal",
@@ -44,12 +48,10 @@
                     "legend": {
                         "title": "Age group",
                         },
-                    }
+                    },
+
             },
-                "tooltip":{
-                    "field":"population",
-                    "type":"quantitative"
-                }
+
             }
 
 
